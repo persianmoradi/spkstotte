@@ -5,7 +5,7 @@ const items = [
   {
     icon: Scale,
     title: "Indsatser efter Barnets Lov",
-    text: "Alle ydelser leveres inden for lovens rammer og myndighedens bestilling.",
+    text: "Alle indsatser leveres inden for lovens rammer og myndighedens bestilling.",
   },
   {
     icon: FileCheck2,

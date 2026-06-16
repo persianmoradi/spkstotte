@@ -60,13 +60,13 @@ export function SiteFooter() {
 
         <div className="lg:col-span-3">
           <h2 className="text-sm font-semibold uppercase tracking-[0.14em] text-accent-200">
-            Ydelser
+            Socialfaglige indsatser
           </h2>
           <ul className="mt-5 space-y-3 text-sm">
             {services.map((s) => (
               <li key={s.slug}>
                 <Link
-                  href={`/ydelser#${s.slug}`}
+                  href={`/indsatser#${s.slug}`}
                   className="text-white/75 transition-colors hover:text-white"
                 >
                   {s.title}

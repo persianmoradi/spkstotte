@@ -12,9 +12,9 @@ import { JsonLd } from "@/components/json-ld";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Om SPK Støtte",
+  title: "Om spkstøtte",
   description:
-    "SPK Støtte er en socialpædagogisk organisation, der leverer socialfaglige indsatser til børn, unge og familier efter Barnets Lov – forankret i respekt, tillid, empati og anerkendelse.",
+    "spkstøtte er en socialpædagogisk organisation, der leverer socialfaglige indsatser til børn, unge og familier efter Barnets Lov – forankret i respekt, tillid, empati og anerkendelse.",
   path: "/om-spk-stotte",
 });
 
@@ -42,17 +42,17 @@ export default function AboutPage() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Forside", path: "/" },
-          { name: "Om SPK Støtte", path: "/om-spk-stotte" },
+          { name: "Om spkstøtte", path: "/om-spk-stotte" },
         ])}
       />
 
       <PageHero
         eyebrow="Om os"
-        title="En socialpædagogisk organisation med hjertet på rette sted"
-        description="SPK Støtte leverer socialfaglige indsatser til børn, unge og familier efter Barnets Lov. Vi kombinerer solid faglighed med ægte nærvær – og gør det trygt for kommunen at samarbejde med os."
+        title="En socialpædagogisk organisation"
+        description="spkstøtte leverer socialfaglige indsatser til børn, unge og familier efter Barnets Lov. Vi kombinerer solid faglighed med ægte nærvær – og gør det trygt for kommunen at samarbejde med os."
         breadcrumbs={[
           { name: "Forside", href: "/" },
-          { name: "Om SPK Støtte", href: "/om-spk-stotte" },
+          { name: "Om spkstøtte", href: "/om-spk-stotte" },
         ]}
       />
 
@@ -65,7 +65,7 @@ export default function AboutPage() {
             />
             <div className="mt-6 space-y-5 text-lg leading-relaxed text-muted-foreground">
               <p>
-                SPK Støtte er bygget på en overbevisning om, at alle børn og unge
+                spkstøtte er bygget på en overbevisning om, at alle børn og unge
                 fortjener trygge, stabile voksne omkring sig. Vi leverer
                 socialfaglige indsatser, der støtter barnet, den unge og familien
                 dér, hvor behovet er – i hjemmet, i hverdagen og i overgangene.

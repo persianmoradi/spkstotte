@@ -1,6 +1,6 @@
-# SPK Støtte — Premium hjemmeside
+# spkstøtte — Premium hjemmeside
 
-Komplet, produktionsklar hjemmeside for **SPK Støtte** — en socialpædagogisk
+Komplet, produktionsklar hjemmeside for **spkstøtte** — en socialpædagogisk
 organisation, der leverer socialfaglige indsatser til børn, unge og familier
 efter **Barnets Lov**.
 
@@ -43,13 +43,13 @@ gennem `tailwind.config.ts` (inkl. fulde 50–900 nuancer for primary/secondary/
 | Rute                          | Side                       |
 | ----------------------------- | -------------------------- |
 | `/`                           | Forside                    |
-| `/om-spk-stotte`              | Om SPK Støtte              |
-| `/ydelser`                    | Ydelser (6 ydelser)        |
+| `/om-spk-stotte`              | Om spkstøtte              |
+| `/indsatser`                  | Socialfaglige indsatser (7 indsatser) |
 | `/metoder`                    | Faglige metoder            |
 | `/samarbejde-med-kommuner`    | Samarbejde med kommuner    |
 | `/kontakt`                    | Kontakt (telefon/mail/CVR) |
 
-**Forsiden** indeholder: hero, trust indicators, "hvorfor vælge SPK Støtte",
+**Forsiden** indeholder: hero, trust indicators, "hvorfor vælge spkstøtte",
 ydelser, arbejdsproces, faglige metoder, samarbejdspartnere og kontaktsektion.
 
 **Ydelser:** Støttekontaktperson · Pædagogisk støtte · Ungestøtte ·
@@ -70,7 +70,7 @@ spkstotte/
 │  │  ├─ page.tsx                   # Forside (alle sektioner)
 │  │  ├─ globals.css                # Design tokens, a11y-fokus, reduced-motion
 │  │  ├─ om-spk-stotte/page.tsx
-│  │  ├─ ydelser/page.tsx
+│  │  ├─ indsatser/page.tsx
 │  │  ├─ metoder/page.tsx
 │  │  ├─ samarbejde-med-kommuner/page.tsx
 │  │  ├─ kontakt/page.tsx
@@ -157,6 +157,23 @@ npm run typecheck  # TypeScript uden output
 
 ---
 
+## Assets (lokale filer)
+
+Alle lokale filer — logoer, billeder, 3D-modeller, ikoner, dokumenter — ligger
+struktureret under `public/assets/` og refereres via registeret i
+`src/lib/assets.ts`. Se `public/assets/README.md` for mappestruktur og
+konventioner. Kort fortalt:
+
+```
+public/assets/{logos,images/<sektion>,models,icons,documents}
+```
+
+```tsx
+import { logos, img, model } from "@/lib/assets";
+<Image src={logos.primary} … />          // logoet (navbar/footer)
+<Image src={img.hero("baggrund.jpg")} … /> // /assets/images/hero/baggrund.jpg
+```
+
 ## Billeder & kreditering
 
 Fotos hentes fra Unsplash via `next/image` (optimeret, AVIF/WebP, responsivt).
@@ -168,7 +185,7 @@ Alle billeder er **frie til kommerciel brug under [Unsplash-licensen](https://un
 | Placering                    | Motiv                         | Fotograf                                              |
 | ---------------------------- | ----------------------------- | ----------------------------------------------------- |
 | Forside (hero)               | Familie på skovsti            | [Emma](https://unsplash.com/@pictures102)             |
-| Om SPK Støtte                | Voksen og barn i aftenlys     | [Sue Zeng](https://unsplash.com/@suezeng)             |
+| Om spkstøtte                | Voksen og barn i aftenlys     | [Sue Zeng](https://unsplash.com/@suezeng)             |
 | Samarbejde med kommuner      | Dialog omkring bord           | [Vitaly Gariev](https://unsplash.com/@silverkblack)   |
 | Metoder                      | Anerkendende samtale          | [Vitaly Gariev](https://unsplash.com/@silverkblack)   |
 | Forside (metode-sektion)     | Rolig skovsti                 | [Ingmar](https://unsplash.com/@visualsbying)          |
@@ -194,4 +211,4 @@ Se `DEPLOYMENT.md` for, hvordan du aktiverer Ruflos fulde swarm-loop i Claude Co
 
 ---
 
-© SPK Støtte · CVR 44827530 · Indsatser efter Barnets Lov
+© spkstøtte · CVR 44827530 · Indsatser efter Barnets Lov

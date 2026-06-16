@@ -44,18 +44,15 @@ export function MethodsPreview() {
           </p>
         </div>
 
-        <RevealGroup className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <RevealGroup className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {methods.map((method) => (
             <RevealItem
               key={method.title}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-colors duration-300 hover:bg-white/10"
+              className="flex min-h-[5rem] items-center justify-center rounded-2xl border border-white/10 bg-white/5 p-5 text-center backdrop-blur-sm transition-colors duration-300 hover:bg-white/10"
             >
-              <h3 className="text-base font-semibold text-accent-200">
+              <h3 className="text-[0.95rem] font-semibold text-white">
                 {method.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-white/75">
-                {method.description}
-              </p>
             </RevealItem>
           ))}
         </RevealGroup>

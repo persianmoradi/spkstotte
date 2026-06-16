@@ -10,7 +10,7 @@ export function MobileCallBar() {
           href={site.phoneHref}
           className="flex items-center justify-center gap-2 py-3.5 text-sm font-semibold text-white"
           style={{ backgroundColor: "#0F2D52" }}
-          aria-label={`Ring til SPK Støtte på ${site.phone}`}
+          aria-label={`Ring til ${site.name} på ${site.phone}`}
         >
           <Phone className="size-4" aria-hidden />
           Ring nu

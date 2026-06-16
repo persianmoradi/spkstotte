@@ -1,14 +1,14 @@
 /**
- * Central site-konfiguration og indholdsdata for SPK Støtte.
- * Ét sted at vedligeholde kontaktinfo, navigation og ydelser.
+ * Central site-konfiguration og indholdsdata for spkstøtte.
+ * Ét sted at vedligeholde kontaktinfo, navigation og indsatser.
  */
 
 export const site = {
-  name: "SPK Støtte",
-  legalName: "SPK Støtte",
+  name: "spkstøtte",
+  legalName: "spkstøtte",
   tagline: "Socialpædagogiske indsatser efter Barnets Lov",
   description:
-    "SPK Støtte leverer socialfaglige indsatser til børn, unge og familier efter Barnets Lov. Vi arbejder ud fra respekt, tillid, empati og anerkendelse – i tæt samarbejde med landets kommuner.",
+    "spkstøtte leverer socialfaglige indsatser til børn, unge og familier efter Barnets Lov. Vi arbejder ud fra respekt, tillid, empati og anerkendelse – i tæt samarbejde med landets kommuner.",
   url: "https://www.spkstotte.dk",
   locale: "da_DK",
   phone: "50 66 76 50",
@@ -17,15 +17,15 @@ export const site = {
   emailHref: "mailto:kontakt@spkstotte.dk",
   cvr: "44827530",
   country: "Danmark",
-  hours: "Mandag–fredag 8.00–16.00",
+  hours: "24 timer i døgnet",
 } as const;
 
 export type NavItem = { label: string; href: string };
 
 export const mainNav: NavItem[] = [
   { label: "Forside", href: "/" },
-  { label: "Om SPK Støtte", href: "/om-spk-stotte" },
-  { label: "Ydelser", href: "/ydelser" },
+  { label: "Om spkstøtte", href: "/om-spk-stotte" },
+  { label: "Socialfaglige indsatser", href: "/indsatser" },
   { label: "Metoder", href: "/metoder" },
   { label: "Samarbejde med kommuner", href: "/samarbejde-med-kommuner" },
   { label: "Kontakt", href: "/kontakt" },
@@ -64,6 +64,14 @@ export type Service = {
   legal?: string;
 };
 
+/**
+ * Indsatser. Rækkefølgen er bevaret fra opbygningen, og Familiebehandling
+ * er tilføjet som nr. 4 (placeholder indtil kunden leverer endelig tekst).
+ *
+ * `legal` indeholder paragraf-henvisningen (Barnets Lov), som vises som lille
+ * underoverskrift under indsatsens titel. Familiebehandling afventer kundens
+ * endelige tekst og har derfor ingen paragraf endnu.
+ */
 export const services: Service[] = [
   {
     slug: "stottekontaktperson",
@@ -78,7 +86,7 @@ export const services: Service[] = [
       "Stærkere relation til skole, fritid og netværk",
       "Tydelig dokumentation og løbende status til sagsbehandler",
     ],
-    legal: "Indsats efter Barnets Lov",
+    legal: "jf. Barnets Lov § 32, stk. 1, nr. 3",
   },
   {
     slug: "paedagogisk-stotte",
@@ -93,7 +101,7 @@ export const services: Service[] = [
       "Konkrete redskaber til hverdagens udfordringer",
       "Forankring af forandringer der holder over tid",
     ],
-    legal: "Indsats efter Barnets Lov",
+    legal: "jf. Barnets Lov § 32, stk. 1, nr. 2",
   },
   {
     slug: "ungestotte",
@@ -108,11 +116,27 @@ export const services: Service[] = [
       "Styrkede praktiske livskompetencer",
       "Øget motivation og selvstændighed",
     ],
-    legal: "Indsats efter Barnets Lov",
+    legal: "jf. Barnets Lov §§ 114-116, jf. § 113",
+  },
+  {
+    slug: "familiebehandling",
+    title: "Familiebehandling",
+    shortDescription:
+      "Målrettet indsats der styrker relationer, kommunikation og trivsel i familiens hverdag.",
+    description:
+      "Familiebehandling er en målrettet indsats til familier, hvor der er behov for støtte til at styrke relationer, kommunikation og trivsel i hverdagen. Vi arbejder tæt sammen med familien om at skabe positive forandringer med udgangspunkt i familiens ressourcer, behov og mål.",
+    forWhom:
+      "Familier med børn og unge, hvor der er behov for støtte til at styrke familiens trivsel og udvikling.",
+    outcomes: [
+      "Styrkede relationer og bedre kommunikation i familien",
+      "Øgede forældrekompetencer og tydeligere rammer i hverdagen",
+      "Bedre trivsel og udviklingsmuligheder for barnet eller den unge",
+    ],
+    legal: "jf. Barnets Lov § 32, stk. 1, nr. 5",
   },
   {
     slug: "stotteperson-75",
-    title: "Støtteperson §75",
+    title: "Støtteperson",
     shortDescription:
       "Støtte til forældre under en anbringelsessag, jf. §75 i Barnets Lov.",
     description:
@@ -123,7 +147,7 @@ export const services: Service[] = [
       "Bedre samarbejde mellem forældre, myndighed og anbringelsessted",
       "Bevaret forældrerolle til gavn for barnet",
     ],
-    legal: "Støtteperson efter §75 i Barnets Lov",
+    legal: "jf. Barnets Lov § 75",
   },
   {
     slug: "stottet-samvaer",
@@ -138,7 +162,7 @@ export const services: Service[] = [
       "Konkret vejledning til forælderen undervejs",
       "Saglig, nænsom dokumentation til sagsbehandler",
     ],
-    legal: "Indsats efter Barnets Lov",
+    legal: "jf. Barnets Lov § 104",
   },
   {
     slug: "overvaaget-samvaer",
@@ -153,15 +177,30 @@ export const services: Service[] = [
       "Konstant fagligt tilsyn af erfaren medarbejder",
       "Objektiv og grundig dokumentation til myndigheden",
     ],
-    legal: "Indsats efter Barnets Lov",
+    legal: "jf. Barnets Lov § 105",
   },
 ];
 
-export const methods = [
+export type Method = { title: string; description: string; image?: string };
+
+export const methods: Method[] = [
   {
-    title: "Relationspædagogik",
+    title: "Anerkendende tilgang",
+    image: "/assets/models/ap.smColHH5.png",
     description:
-      "Den bærende relation er forudsætningen for forandring. Vi investerer i tillid, nærvær og kontinuitet, før vi arbejder med mål.",
+      "Vi arbejder med en anerkendende tilgang, hvor barnet/den unge værdsættes for sine unikke styrker, ressourcer og potentiale. Vi lægger vægt på at møde barnet/unge på deres niveau, både følelsesmæssigt og kommunikativt. Vi skaber et positivt og styrkende miljø, hvor barnet/den unge føler sig set, hørt og værdsat.",
+  },
+  {
+    title: "Relationspædagogisk tilgang",
+    image: "/assets/models/rp.njJRCQgs.png",
+    description:
+      "Vi anvender en relationspædagogisk tilgang med fokus på at opbygge trygge og støttende relationer. Der arbejdes på at skabe en stærk relation til barnet/den unge som tryg base. Støtte tilbydes i relationer med jævnaldrende og familiemedlemmer efter behov. Vi prioriterer at inkludere de unge i fællesskaber, hvor de føler sig værdsatte. Empati og respekt for den unges individuelle behov er kernen i vores tilgang.",
+  },
+  {
+    title: "Den motiverende samtale (MI)",
+    image: "/assets/models/mi.-vXphHeA.png",
+    description:
+      "Motiverende samtaler hjælper barnet/den unge med at identificere mål, værdier og motivation. Tilgangen styrker deres følelse af selvstændighed og kontrol over eget liv. Respekt for deres ret til at træffe egne valg og ansvar for egne handlinger. Kontaktpersonen fungerer som støtte til at hjælpe med at finde løsninger, der passer barnet/unges behov.",
   },
   {
     title: "Systemisk og narrativ tilgang",
@@ -188,7 +227,7 @@ export const methods = [
     description:
       "Vi koordinerer med skole, sundhedsvæsen, myndighed og netværk, så indsatsen hænger sammen om barnet.",
   },
-] as const;
+];
 
 export const processSteps = [
   {

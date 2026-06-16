@@ -65,7 +65,7 @@ export function organizationJsonLd() {
     },
     knowsLanguage: ["da"],
     slogan: site.tagline,
-    openingHours: "Mo-Fr 08:00-16:00",
+    openingHours: "Mo-Su 00:00-23:59",
   };
 }
 
@@ -83,7 +83,7 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
   };
 }
 
-/** Service-katalog JSON-LD til ydelsessiden. */
+/** Service-katalog JSON-LD til indsatssiden. */
 export function servicesJsonLd(
   services: { title: string; shortDescription: string; slug: string }[]
 ) {
@@ -99,7 +99,7 @@ export function servicesJsonLd(
         description: s.shortDescription,
         provider: { "@type": "Organization", name: site.name },
         areaServed: { "@type": "Country", name: "Danmark" },
-        url: `${site.url}/ydelser#${s.slug}`,
+        url: `${site.url}/indsatser#${s.slug}`,
       },
     })),
   };

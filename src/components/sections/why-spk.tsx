@@ -19,7 +19,7 @@ export function WhySpk() {
       <div className="grid gap-14 lg:grid-cols-12 lg:items-start">
         <div className="lg:col-span-5">
           <SectionHeading
-            eyebrow="Hvorfor vælge SPK Støtte"
+            eyebrow="Hvorfor vælge spkstøtte"
             title="Faglighed, du kan dokumentere – og stole på"
             description="Vi gør det trygt og enkelt for kommunen at samarbejde med os. Vores arbejde hviler på fire værdier, der er til stede i hver eneste indsats."
           />
@@ -46,8 +46,8 @@ export function WhySpk() {
             <div className="rounded-3xl border border-border bg-gradient-to-br from-primary to-primary-700 p-8 text-white shadow-card lg:p-10">
               <h3 className="text-xl font-semibold">Det får I som kommune</h3>
               <p className="mt-3 text-sm leading-relaxed text-white/75">
-                En partner, der tager ansvar fra første henvendelse til endelig
-                evaluering – med barnets bedste og jeres rammer for øje.
+                En samarbejdspartner, der tager ansvar fra første henvendelse til
+                endelig evaluering – med barnets bedste og jeres rammer for øje.
               </p>
               <ul className="mt-7 space-y-3">
                 {reasons.map((reason) => (

@@ -1,4 +1,4 @@
-# Deployment-guide — SPK Støtte
+# Deployment-guide — spkstøtte
 
 Denne guide tager dig fra ren kildekode til en live, produktionsklar
 hjemmeside. Anbefalet hosting er **Vercel** (skaberne af Next.js), men
@@ -201,4 +201,4 @@ sessioner og lærer af vellykkede mønstre, mens du arbejder i Claude Code.
 
 ---
 
-© SPK Støtte · CVR 44827530
+© spkstøtte · CVR 44827530

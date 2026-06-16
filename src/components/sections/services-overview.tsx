@@ -12,15 +12,15 @@ export function ServicesOverview() {
       <div className="container-page">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading
-            eyebrow="Ydelser"
+            eyebrow="Socialfaglige indsatser"
             title="Indsatser tilpasset barnets og familiens behov"
-            description="Seks specialiserede ydelser leveret efter Barnets Lov – altid med afsæt i den enkelte sag og myndighedens bestilling."
+            description="Syv specialiserede indsatser leveret efter Barnets Lov – altid med afsæt i den enkelte sag og myndighedens bestilling."
           />
           <Link
-            href="/ydelser"
+            href="/indsatser"
             className="link-underline hidden shrink-0 text-sm font-semibold text-primary lg:inline-flex lg:items-center lg:gap-1"
           >
-            Se alle ydelser
+            Se alle indsatser
             <ArrowUpRight className="size-4" aria-hidden />
           </Link>
         </div>
@@ -31,7 +31,7 @@ export function ServicesOverview() {
             return (
               <RevealItem key={service.slug}>
                 <Link
-                  href={`/ydelser#${service.slug}`}
+                  href={`/indsatser#${service.slug}`}
                   className="group flex h-full flex-col rounded-2xl border border-border bg-white p-7 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/25 hover:shadow-card"
                 >
                   <span className="grid size-12 place-items-center rounded-xl bg-primary/8 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
@@ -40,6 +40,11 @@ export function ServicesOverview() {
                   <h3 className="mt-5 text-lg font-semibold text-primary">
                     {service.title}
                   </h3>
+                  {service.legal ? (
+                    <p className="mt-1 text-xs font-medium text-secondary">
+                      {service.legal}
+                    </p>
+                  ) : null}
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
                     {service.shortDescription}
                   </p>
@@ -55,10 +60,10 @@ export function ServicesOverview() {
 
         <div className="mt-8 lg:hidden">
           <Link
-            href="/ydelser"
+            href="/indsatser"
             className="inline-flex items-center gap-1 text-sm font-semibold text-primary"
           >
-            Se alle ydelser
+            Se alle indsatser
             <ArrowUpRight className="size-4" aria-hidden />
           </Link>
         </div>

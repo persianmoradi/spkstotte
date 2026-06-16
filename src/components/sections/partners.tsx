@@ -1,4 +1,4 @@
-import { Building2, Users, Baby, Handshake, HomeIcon } from "lucide-react";
+import { Building2, Users, Baby, Handshake, HomeIcon, Gavel } from "lucide-react";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { RevealGroup, RevealItem } from "@/components/motion/reveal";
 
@@ -6,6 +6,7 @@ const audiences = [
   { icon: Building2, label: "Kommunale sagsbehandlere" },
   { icon: Users, label: "Familieafdelinger" },
   { icon: Baby, label: "Børn og unge-forvaltninger" },
+  { icon: Gavel, label: "Ungdomskriminalitetsnævnet" },
   { icon: Handshake, label: "Samarbejdspartnere" },
   { icon: HomeIcon, label: "Familier" },
 ];
@@ -16,12 +17,12 @@ export function Partners() {
       <SectionHeading
         eyebrow="Samarbejdspartnere"
         title="Vi arbejder tæt sammen med dem omkring barnet"
-        description="SPK Støtte er bindeled i et helhedsorienteret samarbejde. Vi taler myndighedens sprog og leverer det, der er aftalt."
+        description="spkstøtte er bindeled i et helhedsorienteret samarbejde. Vi taler myndighedens sprog og leverer det, der er aftalt."
         align="center"
         className="mx-auto"
       />
 
-      <RevealGroup className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+      <RevealGroup className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {audiences.map(({ icon: Icon, label }) => (
           <RevealItem
             key={label}

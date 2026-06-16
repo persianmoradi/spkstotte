@@ -19,7 +19,7 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 export const metadata: Metadata = buildMetadata({
   title: "Metoder",
   description:
-    "SPK Støttes faglige metoder: relationspædagogik, systemisk og narrativ tilgang, low arousal, mentalisering, mål- og effektstyring samt helhedsorienteret samarbejde.",
+    "spkstøttes faglige metoder: anerkendende tilgang, relationspædagogisk tilgang, den motiverende samtale (MI), systemisk og narrativ tilgang, low arousal, mentalisering, mål- og effektstyring og helhedsorienteret samarbejde.",
   path: "/metoder",
 });
 
@@ -111,7 +111,22 @@ export default function MethodsPage() {
                 {methods.map((method, i) => (
                   <AccordionItem key={method.title} value={`metode-${i}`}>
                     <AccordionTrigger>{method.title}</AccordionTrigger>
-                    <AccordionContent>{method.description}</AccordionContent>
+                    <AccordionContent>
+                      <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
+                        <p className="flex-1">{method.description}</p>
+                        {method.image ? (
+                          <div className="relative mx-auto aspect-square w-44 shrink-0 rounded-2xl bg-white p-3 ring-1 ring-border sm:mx-0 sm:w-48">
+                            <Image
+                              src={method.image}
+                              alt={`Illustration af ${method.title.toLowerCase()}`}
+                              fill
+                              sizes="(max-width: 640px) 11rem, 12rem"
+                              className="object-contain p-2"
+                            />
+                          </div>
+                        ) : null}
+                      </div>
+                    </AccordionContent>
                   </AccordionItem>
                 ))}
               </Accordion>

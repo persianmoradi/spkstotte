@@ -14,7 +14,7 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 export const metadata: Metadata = buildMetadata({
   title: "Samarbejde med kommuner",
   description:
-    "Sådan samarbejder SPK Støtte med kommunale sagsbehandlere, familieafdelinger og børn og unge-forvaltninger: hurtig opstart, klar dokumentation og tæt dialog efter Barnets Lov.",
+    "Sådan samarbejder spkstøtte med kommunale sagsbehandlere, familieafdelinger og børn og unge-forvaltninger: hurtig opstart, klar dokumentation og tæt dialog efter Barnets Lov.",
   path: "/samarbejde-med-kommuner",
 });
 
@@ -55,6 +55,7 @@ const audiences = [
   "Kommunale sagsbehandlere",
   "Familieafdelinger",
   "Børn og unge-forvaltninger",
+  "Ungdomskriminalitetsnævnet",
   "Samarbejdspartnere",
   "Familier",
 ];
@@ -71,7 +72,7 @@ export default function MunicipalitiesPage() {
 
       <PageHero
         eyebrow="For kommuner"
-        title="En tryg, professionel partner for det offentlige"
+        title="En tryg, professionel samarbejdspartner for det offentlige"
         description="Vi gør det enkelt og forudsigeligt at samarbejde med os. Fra første henvendelse til endelig evaluering tager vi ansvar – med barnets bedste og jeres rammer for øje."
         breadcrumbs={[
           { name: "Forside", href: "/" },
@@ -144,7 +145,7 @@ export default function MunicipalitiesPage() {
             <SectionHeading
               eyebrow="Målgrupper"
               title="Hvem vi samarbejder med"
-              description="SPK Støtte er bindeled i et helhedsorienteret samarbejde om barnet. Vi taler myndighedens sprog og inddrager familien som en aktiv part."
+              description="spkstøtte er bindeled i et helhedsorienteret samarbejde om barnet. Vi taler myndighedens sprog og inddrager familien som en aktiv part."
             />
             <Reveal delay={1} className="mt-8 max-w-none">
               <div className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl shadow-card">

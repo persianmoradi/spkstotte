@@ -12,7 +12,7 @@ import { Reveal } from "@/components/motion/reveal";
 export const metadata: Metadata = buildMetadata({
   title: "Kontakt",
   description:
-    "Kontakt SPK Støtte. Ring på 50 66 76 50 eller skriv til kontakt@spkstotte.dk for en hurtig, uforpligtende afklaring. CVR: 44827530.",
+    "Kontakt spkstøtte. Ring på 50 66 76 50 eller skriv til kontakt@spkstotte.dk for en hurtig, uforpligtende afklaring. CVR: 44827530.",
   path: "/kontakt",
 });
 

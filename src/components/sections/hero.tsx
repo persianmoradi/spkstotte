@@ -2,8 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ShieldCheck, HeartHandshake, Scale } from "lucide-react";
 
-import { site } from "@/lib/site";
-import { images } from "@/lib/images";
+import { img } from "@/lib/assets";
 import { Button } from "@/components/ui/button";
 import { CallNowButton } from "@/components/call-now-button";
 import { Reveal } from "@/components/motion/reveal";
@@ -29,21 +28,21 @@ export function Hero() {
           <Reveal>
             <span className="eyebrow">
               <span className="h-px w-6 bg-secondary" aria-hidden />
-              Socialpædagogisk organisation
+              Socialfaglige indsatser
             </span>
           </Reveal>
 
           <Reveal delay={1}>
             <h1 className="prose-balance mt-5 text-4xl font-semibold leading-[1.08] tracking-tight text-primary sm:text-5xl lg:text-6xl">
-              Tryg, faglig støtte til børn, unge og familier
+              Din tryghed for støtte og omsorg i en svær tid
             </h1>
           </Reveal>
 
           <Reveal delay={2}>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              {site.name} leverer socialfaglige indsatser efter Barnets Lov –
-              forankret i respekt, tillid, empati og anerkendelse. Vi er en
-              professionel samarbejdspartner for landets kommuner.
+              spkstøtte tilbyder ydelser, der er i overensstemmelse med
+              bestemmelserne i Barnets Lov specifikt rettet mod børn og unge,
+              samt deres familier.
             </p>
           </Reveal>
 
@@ -51,8 +50,8 @@ export function Hero() {
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
               <CallNowButton showNumber size="lg" />
               <Button asChild variant="outline" size="lg">
-                <Link href="/ydelser">
-                  Se vores ydelser
+                <Link href="/indsatser">
+                  Se vores indsatser
                   <ArrowRight aria-hidden />
                 </Link>
               </Button>
@@ -91,8 +90,8 @@ function HeroCard() {
         {/* Rigtigt foto med rolig brandtonet overlay */}
         <div className="relative aspect-[4/3] w-full">
           <Image
-            src={images.hero.src}
-            alt={images.hero.alt}
+            src={img.forside("b1.jpg")}
+            alt="Familie går hånd i hånd på en sti"
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 28rem"
@@ -103,7 +102,7 @@ function HeroCard() {
             aria-hidden
           />
           <span className="absolute bottom-4 left-5 text-xs font-medium uppercase tracking-[0.18em] text-white/90">
-            Relation · Faglighed · Tillid
+            Respekt · Tillid · Anerkendelse · Empati
           </span>
         </div>
         <div className="grid grid-cols-2 divide-x divide-border">

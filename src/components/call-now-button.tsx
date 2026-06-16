@@ -19,7 +19,7 @@ export function CallNowButton({
 }: CallNowButtonProps) {
   return (
     <Button asChild variant={variant} size={size} className={className}>
-      <a href={site.phoneHref} aria-label={`Ring til SPK Støtte på ${site.phone}`}>
+      <a href={site.phoneHref} aria-label={`Ring til ${site.name} på ${site.phone}`}>
         <Phone aria-hidden />
         <span>{showNumber ? `${label} · ${site.phone}` : label}</span>
       </a>
