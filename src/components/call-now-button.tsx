@@ -32,7 +32,7 @@ export function PhoneLink({ className }: { className?: string }) {
     <a
       href={site.phoneHref}
       className={cn(
-        "font-semibold text-primary transition-colors hover:text-secondary",
+        "font-semibold text-primary transition-colors hover:text-primary-900",
         className
       )}
     >

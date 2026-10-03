@@ -1,5 +1,15 @@
 import type { Config } from "tailwindcss";
 
+/**
+ * spkstøtte designsystem.
+ *
+ * Farverne findes i to lag:
+ *  1. Semantiske tokens (`primary`, `background`, `muted` …) der peger på
+ *     CSS-variabler i `globals.css`. Brug dem som udgangspunkt – så kan
+ *     hele temaet skiftes ét sted.
+ *  2. Numeriske skalaer (`primary-50` … `primary-950`) til de tilfælde hvor
+ *     der er brug for en helt bestemt nuance (gradienter, hover-trin).
+ */
 const config: Config = {
   darkMode: ["class"],
   content: [
@@ -22,47 +32,83 @@ const config: Config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        surface: {
+          DEFAULT: "hsl(var(--surface))",
+          sunken: "hsl(var(--surface-sunken))",
+        },
+
+        /* Primær – teal. Tillid, omsorg, faglighed. */
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
-          50: "#eef3fa",
-          100: "#d6e2f2",
-          200: "#adc4e4",
-          300: "#7c9fd0",
-          400: "#4a72b0",
-          500: "#2b5189",
-          600: "#1d3c6b",
-          700: "#163056",
-          800: "#0f2d52",
-          900: "#081f3a",
+          strong: "hsl(var(--primary-strong))",
+          deep: "hsl(var(--primary-deep))",
+          50: "#F0FDFA",
+          100: "#CCFBF1",
+          200: "#99F6E4",
+          300: "#5EEAD4",
+          400: "#2DD4BF",
+          500: "#14B8A6",
+          600: "#0D9488",
+          700: "#0F766E",
+          800: "#115E59",
+          900: "#134E4A",
+          950: "#042F2E",
         },
+
+        /* Sekundær – samme familie, et trin lysere. */
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
-          50: "#eef6f1",
-          100: "#d4e9dd",
-          200: "#a9d3bb",
-          300: "#76b594",
-          400: "#4a9270",
-          500: "#2f6f57",
-          600: "#255945",
-          700: "#1d4637",
-          800: "#16362b",
-          900: "#0f2620",
+          50: "#F0FDFA",
+          100: "#CCFBF1",
+          200: "#99F6E4",
+          300: "#5EEAD4",
+          400: "#2DD4BF",
+          500: "#14B8A6",
+          600: "#0D9488",
+          700: "#0F766E",
+          800: "#115E59",
+          900: "#134E4A",
         },
+
+        /* Accent – varm amber. Kun til CTA-highlights, badges og tal. */
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
-          50: "#fbf9f5",
-          100: "#f4efe6",
-          200: "#e8dfd1",
-          300: "#d9ccb6",
-          400: "#c6b394",
-          500: "#b39a73",
+          ink: "hsl(var(--accent-ink))",
+          50: "#FFFBEB",
+          100: "#FEF3C7",
+          200: "#FDE68A",
+          300: "#FCD34D",
+          400: "#FBBF24",
+          500: "#F59E0B",
+          600: "#D97706",
+          700: "#B45309",
+          800: "#92400E",
+          900: "#78350F",
         },
+
+        /* Neutraler til tekst og rolige flader. */
+        ink: {
+          50: "#F8FAFC",
+          100: "#F1F5F9",
+          200: "#E2E8F0",
+          300: "#CBD5E1",
+          400: "#94A3B8",
+          500: "#64748B",
+          600: "#475569",
+          700: "#334155",
+          800: "#1E293B",
+          900: "#0F172A",
+        },
+
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
+        },
+        subtle: {
+          foreground: "hsl(var(--subtle-foreground))",
         },
         card: {
           DEFAULT: "hsl(var(--card))",
@@ -77,19 +123,48 @@ const config: Config = {
           foreground: "hsl(var(--destructive-foreground))",
         },
       },
+
       borderRadius: {
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        md: "calc(var(--radius) - 4px)",
+        sm: "calc(var(--radius) - 8px)",
+        "2xl": "1.25rem",
+        "3xl": "1.75rem",
+        "4xl": "2.25rem",
       },
+
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
       },
-      boxShadow: {
-        soft: "0 1px 2px rgba(15,45,82,0.04), 0 8px 24px rgba(15,45,82,0.06)",
-        card: "0 1px 3px rgba(15,45,82,0.06), 0 18px 40px -16px rgba(15,45,82,0.18)",
-        lift: "0 24px 60px -24px rgba(15,45,82,0.32)",
+
+      /* Typografisk skala med indbygget linjehøjde og tracking, så
+         overskrifter ser ens ud på tværs af sider. */
+      fontSize: {
+        "2xs": ["0.6875rem", { lineHeight: "1rem", letterSpacing: "0.04em" }],
+        xs: ["0.75rem", { lineHeight: "1.125rem" }],
+        sm: ["0.875rem", { lineHeight: "1.4rem" }],
+        base: ["1rem", { lineHeight: "1.65rem" }],
+        lg: ["1.125rem", { lineHeight: "1.8rem" }],
+        xl: ["1.25rem", { lineHeight: "1.85rem", letterSpacing: "-0.01em" }],
+        "2xl": ["1.5rem", { lineHeight: "2rem", letterSpacing: "-0.015em" }],
+        "3xl": ["1.875rem", { lineHeight: "2.3rem", letterSpacing: "-0.02em" }],
+        "4xl": ["2.25rem", { lineHeight: "2.6rem", letterSpacing: "-0.022em" }],
+        "5xl": ["3rem", { lineHeight: "3.3rem", letterSpacing: "-0.025em" }],
+        "6xl": ["3.75rem", { lineHeight: "4rem", letterSpacing: "-0.03em" }],
+        "7xl": ["4.5rem", { lineHeight: "4.75rem", letterSpacing: "-0.032em" }],
       },
+
+      /* Bløde, lysegrå skygger – ingen tunge sorte kasser. */
+      boxShadow: {
+        soft: "0 1px 2px rgba(15,23,42,0.04), 0 8px 24px -8px rgba(15,23,42,0.06)",
+        card: "0 1px 3px rgba(15,23,42,0.05), 0 10px 30px -10px rgba(15,23,42,0.08)",
+        lift: "0 1px 3px rgba(15,23,42,0.06), 0 24px 50px -20px rgba(15,23,42,0.18)",
+        glass:
+          "0 1px 2px rgba(15,23,42,0.04), 0 16px 40px -14px rgba(15,23,42,0.16)",
+        "accent-glow": "0 10px 30px -10px rgba(245,158,11,0.45)",
+        "primary-glow": "0 10px 30px -10px rgba(15,118,110,0.4)",
+      },
+
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -99,10 +174,21 @@ const config: Config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        /* Meget langsom, næsten umærkelig bevægelse på baggrundsformer. */
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-14px)" },
+        },
       },
+
       animation: {
         "accordion-down": "accordion-down 0.25s ease-out",
         "accordion-up": "accordion-up 0.25s ease-out",
+        float: "float 11s ease-in-out infinite",
+      },
+
+      transitionTimingFunction: {
+        "out-expo": "cubic-bezier(0.22, 1, 0.36, 1)",
       },
     },
   },

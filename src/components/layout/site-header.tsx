@@ -10,6 +10,7 @@ import { mainNav, site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/brand/logo";
 import { CallNowButton } from "@/components/call-now-button";
+import { Button } from "@/components/ui/button";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -37,19 +38,19 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300",
+        "sticky top-0 z-50 w-full transition-[background-color,box-shadow,border-color,backdrop-filter] duration-300 ease-out-expo",
         scrolled
-          ? "border-b border-border bg-white/85 shadow-soft backdrop-blur-md"
-          : "border-b border-transparent bg-white/60 backdrop-blur-sm"
+          ? "border-b border-ink-900/[0.07] bg-background/80 shadow-soft backdrop-blur-xl backdrop-saturate-150"
+          : "border-b border-transparent bg-background/55 backdrop-blur-md"
       )}
     >
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-white"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-primary-strong focus:px-4 focus:py-2 focus:text-white focus:shadow-lift"
       >
         Spring til indhold
       </a>
-      <div className="container-page flex h-16 items-center justify-between gap-4 lg:h-20">
+      <div className="container-page flex h-16 items-center justify-between gap-3 lg:h-20 lg:gap-6">
         <Logo />
 
         <nav aria-label="Hovednavigation" className="hidden lg:block">
@@ -65,19 +66,23 @@ export function SiteHeader() {
                     href={item.href}
                     aria-current={active ? "page" : undefined}
                     className={cn(
-                      "relative rounded-full px-3.5 py-2 text-sm font-medium transition-colors",
+                      "relative whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors duration-200",
                       active
                         ? "text-primary"
                         : "text-muted-foreground hover:text-primary"
                     )}
                   >
-                    {item.label}
+                    {/* Pillen tegnes først og teksten løftes med `relative`,
+                        så markeringen ligger bag labelen uden negativ z-index
+                        (som ville havne bag headerens egen baggrund). */}
                     {active ? (
                       <motion.span
                         layoutId="nav-active"
-                        className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-secondary"
+                        className="absolute inset-0 rounded-full bg-primary-50"
+                        transition={{ type: "spring", stiffness: 380, damping: 32 }}
                       />
                     ) : null}
+                    <span className="relative">{item.navLabel ?? item.label}</span>
                   </Link>
                 </li>
               );
@@ -85,14 +90,23 @@ export function SiteHeader() {
           </ul>
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <CallNowButton showNumber variant="primary" size="sm" />
+        <div className="hidden shrink-0 items-center gap-2.5 lg:flex">
+          <CallNowButton
+            showNumber
+            variant="outline"
+            size="sm"
+            className="hidden xl:inline-flex"
+          />
+          <CallNowButton variant="outline" size="sm" className="xl:hidden" />
+          <Button asChild variant="accent" size="sm">
+            <Link href="/kontakt">Kontakt os</Link>
+          </Button>
         </div>
 
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex size-11 items-center justify-center rounded-full text-primary transition-colors hover:bg-primary/5 lg:hidden"
+          className="inline-flex size-11 items-center justify-center rounded-full text-primary transition-colors hover:bg-primary-50 lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "Luk menu" : "Åbn menu"}
@@ -113,7 +127,7 @@ export function SiteHeader() {
           >
             <nav
               aria-label="Mobilnavigation"
-              className="container-page border-t border-border bg-white pb-6 pt-2"
+              className="container-page border-t border-ink-900/[0.07] bg-background/95 pb-6 pt-2 backdrop-blur-xl"
             >
               <ul className="flex flex-col">
                 {mainNav.map((item) => {
@@ -129,7 +143,7 @@ export function SiteHeader() {
                         className={cn(
                           "block rounded-xl px-4 py-3 text-base font-medium transition-colors",
                           active
-                            ? "bg-primary/5 text-primary"
+                            ? "bg-primary-50 text-primary"
                             : "text-muted-foreground hover:bg-muted hover:text-primary"
                         )}
                       >
@@ -139,13 +153,21 @@ export function SiteHeader() {
                   );
                 })}
               </ul>
-              <a
-                href={site.phoneHref}
-                className="mt-4 flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-soft"
-              >
-                <Phone className="size-4" />
-                Ring nu · {site.phone}
-              </a>
+              <div className="mt-4 grid gap-2.5">
+                <a
+                  href={site.phoneHref}
+                  className="flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground shadow-soft"
+                >
+                  <Phone className="size-4" aria-hidden />
+                  Ring nu · {site.phone}
+                </a>
+                <Link
+                  href="/kontakt"
+                  className="flex items-center justify-center gap-2 rounded-full border border-primary/20 bg-surface px-6 py-3 text-sm font-semibold text-primary"
+                >
+                  Kontakt os
+                </Link>
+              </div>
             </nav>
           </motion.div>
         ) : null}

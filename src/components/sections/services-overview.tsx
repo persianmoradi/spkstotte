@@ -8,8 +8,10 @@ import { RevealGroup, RevealItem } from "@/components/motion/reveal";
 
 export function ServicesOverview() {
   return (
-    <section className="bg-muted/40 py-20 lg:py-28">
-      <div className="container-page">
+    <section className="relative overflow-hidden bg-surface-sunken py-20 lg:py-28">
+      <div className="pointer-events-none absolute inset-0 mesh-soft opacity-70" aria-hidden />
+
+      <div className="container-page relative">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading
             eyebrow="Socialfaglige indsatser"
@@ -32,25 +34,36 @@ export function ServicesOverview() {
               <RevealItem key={service.slug}>
                 <Link
                   href={`/indsatser#${service.slug}`}
-                  className="group flex h-full flex-col rounded-2xl border border-border bg-white p-7 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/25 hover:shadow-card"
+                  className="lift-hover group relative flex h-full flex-col overflow-hidden rounded-3xl border border-ink-900/[0.06] bg-surface p-7 shadow-soft hover:border-primary/25 hover:shadow-lift lg:p-8"
                 >
-                  <span className="grid size-12 place-items-center rounded-xl bg-primary/8 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
+                  {/* Blød teal-glød der toner frem ved hover */}
+                  <span
+                    className="pointer-events-none absolute -right-16 -top-16 size-40 rounded-full bg-primary-100/0 blur-2xl transition-colors duration-500 group-hover:bg-primary-100/70"
+                    aria-hidden
+                  />
+
+                  <span className="relative grid size-12 place-items-center rounded-2xl bg-primary-50 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
                     {Icon ? <Icon className="size-6" aria-hidden /> : null}
                   </span>
-                  <h3 className="mt-5 text-lg font-semibold text-primary">
+
+                  <h3 className="relative mt-5 text-lg font-semibold text-ink-900">
                     {service.title}
                   </h3>
                   {service.legal ? (
-                    <p className="mt-1 text-xs font-medium text-secondary">
+                    <p className="relative mt-1.5 text-xs font-medium text-primary">
                       {service.legal}
                     </p>
                   ) : null}
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  <p className="relative mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
                     {service.shortDescription}
                   </p>
-                  <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-secondary">
+
+                  <span className="relative mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
                     Læs mere
-                    <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
+                    <ArrowUpRight
+                      className="size-4 transition-transform duration-300 ease-out-expo group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                      aria-hidden
+                    />
                   </span>
                 </Link>
               </RevealItem>

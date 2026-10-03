@@ -8,40 +8,43 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden bg-primary text-white">
-      <div className="pointer-events-none absolute inset-0 bg-grid-faint opacity-30" aria-hidden />
+    <footer className="relative overflow-hidden bg-primary-900 text-white">
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
+        <div className="absolute inset-0 bg-grid-faint opacity-20" />
+        <div className="absolute -right-32 -top-32 size-96 rounded-full bg-primary-700/40 blur-3xl" />
+      </div>
       <div className="container-page relative grid gap-12 py-16 lg:grid-cols-12 lg:py-20">
         <div className="lg:col-span-4">
           <Logo variant="light" />
-          <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/70">
+          <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/85">
             {site.description}
           </p>
           <dl className="mt-7 space-y-3 text-sm">
             <div className="flex items-center gap-3">
-              <Phone className="size-4 text-accent-200" aria-hidden />
-              <a href={site.phoneHref} className="hover:text-accent-200">
+              <Phone className="size-4 text-accent-300" aria-hidden />
+              <a href={site.phoneHref} className="hover:text-accent-300">
                 {site.phone}
               </a>
             </div>
             <div className="flex items-center gap-3">
-              <Mail className="size-4 text-accent-200" aria-hidden />
-              <a href={site.emailHref} className="hover:text-accent-200">
+              <Mail className="size-4 text-accent-300" aria-hidden />
+              <a href={site.emailHref} className="hover:text-accent-300">
                 {site.email}
               </a>
             </div>
             <div className="flex items-center gap-3">
-              <Clock className="size-4 text-accent-200" aria-hidden />
-              <span className="text-white/70">{site.hours}</span>
+              <Clock className="size-4 text-accent-300" aria-hidden />
+              <span className="text-white/85">{site.hours}</span>
             </div>
             <div className="flex items-center gap-3">
-              <MapPin className="size-4 text-accent-200" aria-hidden />
-              <span className="text-white/70">Landsdækkende · {site.country}</span>
+              <MapPin className="size-4 text-accent-300" aria-hidden />
+              <span className="text-white/85">Landsdækkende · {site.country}</span>
             </div>
           </dl>
         </div>
 
         <div className="lg:col-span-3 lg:col-start-6">
-          <h2 className="text-sm font-semibold uppercase tracking-[0.14em] text-accent-200">
+          <h2 className="text-sm font-semibold uppercase tracking-[0.14em] text-accent-300">
             Sider
           </h2>
           <ul className="mt-5 space-y-3 text-sm">
@@ -49,7 +52,7 @@ export function SiteFooter() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-white/75 transition-colors hover:text-white"
+                  className="text-white/85 transition-colors hover:text-white"
                 >
                   {item.label}
                 </Link>
@@ -59,7 +62,7 @@ export function SiteFooter() {
         </div>
 
         <div className="lg:col-span-3">
-          <h2 className="text-sm font-semibold uppercase tracking-[0.14em] text-accent-200">
+          <h2 className="text-sm font-semibold uppercase tracking-[0.14em] text-accent-300">
             Socialfaglige indsatser
           </h2>
           <ul className="mt-5 space-y-3 text-sm">
@@ -67,7 +70,7 @@ export function SiteFooter() {
               <li key={s.slug}>
                 <Link
                   href={`/indsatser#${s.slug}`}
-                  className="text-white/75 transition-colors hover:text-white"
+                  className="text-white/85 transition-colors hover:text-white"
                 >
                   {s.title}
                 </Link>
@@ -78,7 +81,7 @@ export function SiteFooter() {
       </div>
 
       <div className="relative border-t border-white/10">
-        <div className="container-page flex flex-col gap-2 py-6 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between">
+        <div className="container-page flex flex-col gap-2 py-6 text-xs text-white/85 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {site.name}. Alle rettigheder forbeholdes.
           </p>

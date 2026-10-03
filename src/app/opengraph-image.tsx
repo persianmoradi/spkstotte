@@ -17,7 +17,7 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px",
-          background: "linear-gradient(135deg, #0F2D52 0%, #163056 55%, #2F6F57 140%)",
+          background: "linear-gradient(135deg, #115E59 0%, #0F766E 55%, #134E4A 140%)",
           color: "#fff",
           fontFamily: "sans-serif",
         }}
@@ -28,11 +28,11 @@ export default function OpengraphImage() {
               width: 64,
               height: 64,
               borderRadius: 18,
-              background: "#E8DFD1",
+              background: "#F59E0B",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              color: "#0F2D52",
+              color: "#0F172A",
               fontSize: 34,
               fontWeight: 700,
             }}
@@ -48,7 +48,7 @@ export default function OpengraphImage() {
               fontSize: 18,
               letterSpacing: 4,
               textTransform: "uppercase",
-              color: "#E8DFD1",
+              color: "#FCD34D",
             }}
           >
             Socialpædagogisk organisation
@@ -61,7 +61,7 @@ export default function OpengraphImage() {
           </div>
         </div>
 
-        <div style={{ display: "flex", gap: 32, fontSize: 24, color: "#E8DFD1" }}>
+        <div style={{ display: "flex", gap: 32, fontSize: 24, color: "#FCD34D" }}>
           <span>{site.phone}</span>
           <span>{site.email}</span>
         </div>

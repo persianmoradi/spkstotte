@@ -26,39 +26,42 @@ export function WhySpk() {
 
           <RevealGroup className="mt-10 grid gap-4 sm:grid-cols-2">
             {values.map((value) => (
-              <RevealItem
-                key={value.title}
-                className="rounded-2xl border border-border bg-white p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card"
-              >
-                <h3 className="text-base font-semibold text-secondary">
-                  {value.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {value.description}
-                </p>
+              <RevealItem key={value.title}>
+                <div className="lift-hover-sm h-full rounded-3xl border border-ink-900/[0.06] bg-surface p-5 shadow-soft hover:border-primary/20 hover:shadow-card">
+                  <h3 className="text-base font-semibold text-primary">
+                    {value.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {value.description}
+                  </p>
+                </div>
               </RevealItem>
             ))}
           </RevealGroup>
         </div>
 
         <div className="lg:col-span-6 lg:col-start-7">
-          <Reveal className="max-w-none">
-            <div className="rounded-3xl border border-border bg-gradient-to-br from-primary to-primary-700 p-8 text-white shadow-card lg:p-10">
-              <h3 className="text-xl font-semibold">Det får I som kommune</h3>
-              <p className="mt-3 text-sm leading-relaxed text-white/75">
-                En samarbejdspartner, der tager ansvar fra første henvendelse til
-                endelig evaluering – med barnets bedste og jeres rammer for øje.
-              </p>
-              <ul className="mt-7 space-y-3">
-                {reasons.map((reason) => (
-                  <li key={reason} className="flex items-start gap-3 text-sm">
-                    <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-accent text-primary">
-                      <Check className="size-3.5" aria-hidden />
-                    </span>
-                    <span className="text-white/90">{reason}</span>
-                  </li>
-                ))}
-              </ul>
+          <Reveal className="max-w-none" variant="scale">
+            <div className="relative overflow-hidden rounded-4xl bg-gradient-to-br from-primary-800 via-primary-800 to-primary-900 p-8 text-white shadow-lift lg:p-10">
+              <div className="pointer-events-none absolute inset-0 mesh-cta" aria-hidden />
+              <div className="relative">
+                <h3 className="text-xl font-semibold">Det får I som kommune</h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/95">
+                  En samarbejdspartner, der tager ansvar fra første henvendelse
+                  til endelig evaluering – med barnets bedste og jeres rammer for
+                  øje.
+                </p>
+                <ul className="mt-7 space-y-3.5">
+                  {reasons.map((reason) => (
+                    <li key={reason} className="flex items-start gap-3 text-sm">
+                      <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-accent text-accent-foreground">
+                        <Check className="size-3.5" aria-hidden />
+                      </span>
+                      <span className="text-white/95">{reason}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </Reveal>
         </div>

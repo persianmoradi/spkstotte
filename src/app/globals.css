@@ -2,40 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ==========================================================================
+   spkstøtte – designsystem (lys, moderne, professionel)
+   --------------------------------------------------------------------------
+   Alle farver defineres som HSL-kanaler, så Tailwind kan lægge opacity på
+   (fx `bg-primary/10`). Paletten er valgt til at ramme WCAG AAA på brødtekst.
+
+   Målte kontrastforhold (beregnet, ikke skønnet):
+     foreground  #0F172A på #FAFAFC → 17.13:1  (AAA)
+     muted-fg    #435167 på #FAFAFC →  7.71:1  (AAA)
+     muted-fg    #435167 på #F4F6F8 →  7.42:1  (AAA – den nedtonede flade
+                 er lysere end baggrunden, så den er det bindende tilfælde)
+     primary     #0F766E på #FAFAFC →  5.25:1  (AA; bruges til overskrifter,
+                 ikoner og links – aldrig til lange brødtekster)
+     hvid på primary-800 #115E59    →  7.58:1  (AAA – fyldte knapper)
+     hvid/95 på primary-800         →  7.03:1  (AAA – brødtekst på teal paneler)
+     hvid/85 på primary-900 #134E4A →  7.34:1  (AAA – footer)
+     #0F172A på accent #F59E0B      →  8.31:1  (AAA – den varme CTA)
+   ========================================================================== */
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 212 55% 14%;
+    /* Flader ---------------------------------------------------------- */
+    --background: 240 20% 98%;        /* #FAFAFC – varm off-white */
+    --surface: 0 0% 100%;             /* #FFFFFF – kort og paneler */
+    --surface-sunken: 210 22% 96%;    /* #F4F6F8 – rolige sektioner */
 
     --card: 0 0% 100%;
-    --card-foreground: 212 55% 14%;
-
+    --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
-    --popover-foreground: 212 55% 14%;
+    --popover-foreground: 222 47% 11%;
 
-    /* Primary – dyb navy #0F2D52 */
-    --primary: 212 70% 19%;
+    /* Tekst ----------------------------------------------------------- */
+    --foreground: 222 47% 11%;        /* #0F172A */
+    --muted: 210 22% 96%;
+    --muted-foreground: 217 21% 33%;  /* #435167 */
+    --subtle-foreground: 215 16% 47%; /* #64748B – kun til meta/labels */
+
+    /* Primær – varm teal (tillid, omsorg, faglighed) ------------------ */
+    --primary: 175 77% 26%;           /* #0F766E */
     --primary-foreground: 0 0% 100%;
+    --primary-strong: 176 69% 22%;    /* #115E59 – fyldte knapper */
+    --primary-deep: 176 61% 19%;      /* #134E4A – footer */
 
-    /* Secondary – skovgrøn #2F6F57 */
-    --secondary: 152 41% 31%;
+    /* Sekundær – samme familie, lysere (badges, ikonflader) ----------- */
+    --secondary: 174 80% 29%;         /* #0D9488 */
     --secondary-foreground: 0 0% 100%;
 
-    /* Accent – varm sand #E8DFD1 */
-    --accent: 36 39% 86%;
-    --accent-foreground: 212 70% 19%;
-
-    --muted: 212 30% 96%;
-    --muted-foreground: 212 18% 42%;
+    /* Accent – varm amber, kun til CTA-highlights og badges ----------- */
+    --accent: 38 92% 50%;             /* #F59E0B */
+    --accent-foreground: 222 47% 11%; /* mørk tekst på amber = AAA */
+    --accent-ink: 26 90% 37%;         /* #B45309 – amber tekst på lys flade */
 
     --destructive: 0 72% 42%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 212 24% 90%;
-    --input: 212 24% 90%;
-    --ring: 212 70% 19%;
+    /* Kanter og fokus -------------------------------------------------- */
+    --border: 214 32% 91%;            /* #E2E8F0 */
+    --border-soft: 222 47% 11%;       /* bruges med lav alpha */
+    --input: 214 32% 91%;
+    --ring: 175 77% 26%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
   }
 }
 
@@ -59,7 +87,7 @@
   :where(a, button, input, textarea, select, [tabindex]):focus-visible {
     outline: 2px solid hsl(var(--primary));
     outline-offset: 3px;
-    border-radius: 4px;
+    border-radius: 6px;
   }
 
   ::selection {
@@ -67,6 +95,7 @@
     color: #fff;
   }
 
+  /* Ingen bevægelse for brugere der har fravalgt det (WCAG 2.3.3) */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -75,6 +104,12 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
+    }
+
+    /* Hover-løft slås helt fra, så layoutet står helt stille */
+    .lift-hover:hover,
+    .lift-hover-sm:hover {
+      transform: none !important;
     }
   }
 }
@@ -85,20 +120,127 @@
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-secondary;
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-primary;
   }
 
   .prose-balance {
     text-wrap: balance;
   }
 
-  /* Blødt, skandinavisk baggrundsmønster */
+  /* --- Glassmorphism ------------------------------------------------- */
+
+  /* Frosted panel på lys baggrund – navigation, flydende badges, kort */
+  .glass {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow:
+      0 1px 2px rgba(15, 23, 42, 0.04),
+      0 10px 30px -10px rgba(15, 23, 42, 0.08);
+  }
+
+  /* Kraftigere variant til elementer der ligger oven på fotos */
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.86);
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow:
+      0 1px 2px rgba(15, 23, 42, 0.05),
+      0 16px 40px -14px rgba(15, 23, 42, 0.18);
+  }
+
+  /* Glas på mørk/teal flade */
+  .glass-dark {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px) saturate(130%);
+    -webkit-backdrop-filter: blur(12px) saturate(130%);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  /* Faldback: browsere uden backdrop-filter får en solid flade i stedet,
+     så teksten aldrig bliver ulæselig. */
+  @supports not (backdrop-filter: blur(12px)) {
+    .glass {
+      background: rgba(255, 255, 255, 0.95);
+    }
+    .glass-strong {
+      background: rgba(255, 255, 255, 0.97);
+    }
+    .glass-dark {
+      background: rgba(15, 78, 74, 0.72);
+    }
+  }
+
+  /* --- Bløde organiske baggrunde ------------------------------------- */
+
+  /* Mesh-gradient: tre radiale felter i meget lav opacitet. Giver dybde
+     uden at tage opmærksomhed fra indholdet. */
+  .mesh-soft {
+    background-image:
+      radial-gradient(42rem 32rem at 12% 8%, hsl(var(--primary) / 0.08), transparent 60%),
+      radial-gradient(38rem 30rem at 88% 4%, hsl(var(--accent) / 0.1), transparent 62%),
+      radial-gradient(44rem 34rem at 62% 86%, hsl(var(--secondary) / 0.07), transparent 64%);
+  }
+
+  .mesh-cta {
+    background-image:
+      radial-gradient(28rem 22rem at 86% 12%, hsl(var(--accent) / 0.22), transparent 64%),
+      radial-gradient(32rem 26rem at 8% 92%, hsl(0 0% 100% / 0.14), transparent 60%);
+  }
+
   .bg-grid-faint {
-    background-image: radial-gradient(
-      hsl(212 40% 30% / 0.05) 1px,
-      transparent 1px
-    );
+    background-image: radial-gradient(hsl(var(--primary) / 0.07) 1px, transparent 1px);
     background-size: 28px 28px;
+  }
+
+  /* --- Mikrointeraktioner -------------------------------------------- */
+
+  /* Blødt løft på kort. Transform+shadow animeres (compositor-only),
+     så der ikke opstår layout shift. */
+  .lift-hover {
+    @apply transition-[transform,box-shadow,border-color] duration-300 ease-out;
+    will-change: transform;
+  }
+  .lift-hover:hover {
+    transform: translateY(-6px);
+  }
+
+  .lift-hover-sm {
+    @apply transition-[transform,box-shadow,border-color] duration-300 ease-out;
+  }
+  .lift-hover-sm:hover {
+    transform: translateY(-3px);
+  }
+
+  /* Glossy sweep hen over fyldte knapper ved hover */
+  .shine {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .shine::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      100deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.28) 50%,
+      transparent 80%
+    );
+    transform: translateX(-120%);
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .shine:hover::after {
+    transform: translateX(120%);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .shine::after {
+      display: none;
+    }
   }
 
   .link-underline {

@@ -90,12 +90,12 @@ export default function MunicipalitiesPage() {
           {benefits.map(({ icon: Icon, title, text }) => (
             <RevealItem
               key={title}
-              className="rounded-2xl border border-border bg-white p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card"
+              className="rounded-3xl border border-ink-900/[0.06] bg-surface p-7 shadow-soft lift-hover-sm hover:shadow-card"
             >
-              <span className="grid size-12 place-items-center rounded-xl bg-primary/8 text-primary">
+              <span className="grid size-12 place-items-center rounded-xl bg-primary-50 text-primary">
                 <Icon className="size-6" aria-hidden />
               </span>
-              <h3 className="mt-5 text-lg font-semibold text-primary">{title}</h3>
+              <h3 className="mt-5 text-lg font-semibold text-ink-900">{title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {text}
               </p>
@@ -107,14 +107,14 @@ export default function MunicipalitiesPage() {
       <section className="bg-primary py-20 text-white lg:py-28">
         <div className="container-page">
           <div className="max-w-2xl">
-            <span className="eyebrow text-accent-200">
+            <span className="eyebrow text-accent-300">
               <span className="h-px w-6 bg-accent-200" aria-hidden />
               Samarbejdsforløb
             </span>
             <h2 className="prose-balance mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
               Sådan forløber et samarbejde
             </h2>
-            <p className="mt-4 text-lg leading-relaxed text-white/75">
+            <p className="mt-4 text-lg leading-relaxed text-white/95">
               Et gennemskueligt forløb i fem trin – så I altid ved, hvad der sker
               hvornår.
             </p>
@@ -126,11 +126,11 @@ export default function MunicipalitiesPage() {
                 key={step.step}
                 className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
               >
-                <span className="text-2xl font-bold text-accent-200">
+                <span className="text-2xl font-bold text-accent-300">
                   {step.step}
                 </span>
                 <h3 className="mt-3 text-base font-semibold">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/75">
+                <p className="mt-2 text-sm leading-relaxed text-white/95">
                   {step.description}
                 </p>
               </RevealItem>
@@ -169,7 +169,7 @@ export default function MunicipalitiesPage() {
                 {audiences.map((audience) => (
                   <li
                     key={audience}
-                    className="rounded-xl border border-border bg-muted/40 px-5 py-4 text-sm font-semibold text-primary"
+                    className="rounded-xl border border-ink-900/[0.06] bg-surface-sunken px-5 py-4 text-sm font-semibold text-ink-900"
                   >
                     {audience}
                   </li>

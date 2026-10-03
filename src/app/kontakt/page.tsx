@@ -62,18 +62,18 @@ export default function ContactPage() {
           {/* Primær kontakt */}
           <div className="lg:col-span-7">
             <Reveal className="max-w-none">
-              <div className="flex h-full flex-col justify-between rounded-3xl border border-border bg-gradient-to-br from-primary to-primary-700 p-8 text-white shadow-card lg:p-12">
+              <div className="flex h-full flex-col justify-between rounded-3xl border border-ink-900/[0.06] bg-gradient-to-br from-primary-800 via-primary-800 to-primary-900 p-8 text-white shadow-card lg:p-12">
                 <div>
                   <h2 className="text-2xl font-semibold tracking-tight">
                     Ring til os
                   </h2>
-                  <p className="mt-3 max-w-md text-white/75">
+                  <p className="mt-3 max-w-md text-white/95">
                     Den hurtigste vej til en afklaring er et opkald. Vi sidder
                     klar i åbningstiden og hjælper jer videre med det samme.
                   </p>
                   <a
                     href={site.phoneHref}
-                    className="mt-8 inline-block text-4xl font-bold tracking-tight transition-colors hover:text-accent-200 sm:text-5xl"
+                    className="mt-8 inline-block text-4xl font-bold tracking-tight transition-colors hover:text-accent-300 sm:text-5xl"
                   >
                     {site.phone}
                   </a>
@@ -99,15 +99,15 @@ export default function ContactPage() {
           {/* Kontaktdetaljer */}
           <div className="lg:col-span-5">
             <Reveal delay={1} className="max-w-none">
-              <div className="h-full rounded-3xl border border-border bg-white p-8 shadow-soft lg:p-10">
-                <h2 className="text-lg font-semibold text-primary">
+              <div className="h-full rounded-3xl border border-ink-900/[0.06] bg-surface p-8 shadow-soft lg:p-10">
+                <h2 className="text-lg font-semibold text-ink-900">
                   Kontaktoplysninger
                 </h2>
                 <dl className="mt-6 space-y-6">
                   <ContactRow icon={Phone} label="Telefon">
                     <a
                       href={site.phoneHref}
-                      className="font-semibold text-primary hover:text-secondary"
+                      className="font-semibold text-primary hover:text-primary-900"
                     >
                       {site.phone}
                     </a>
@@ -115,7 +115,7 @@ export default function ContactPage() {
                   <ContactRow icon={Mail} label="E-mail">
                     <a
                       href={site.emailHref}
-                      className="font-semibold text-primary hover:text-secondary"
+                      className="font-semibold text-primary hover:text-primary-900"
                     >
                       {site.email}
                     </a>
@@ -152,7 +152,7 @@ function ContactRow({
 }) {
   return (
     <div className="flex items-start gap-4">
-      <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-primary/8 text-primary">
+      <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-primary-50 text-primary">
         <Icon className="size-5" aria-hidden />
       </span>
       <div>

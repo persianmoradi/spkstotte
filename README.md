@@ -182,13 +182,19 @@ Alle billeder er **frie til kommerciel brug under [Unsplash-licensen](https://un
 `next.config.mjs` (`images.remotePatterns`). Alle billeder styres ét sted i
 `src/lib/images.ts` — udskift `src`/`alt` dér for at bruge jeres egne fotos.
 
-| Placering                    | Motiv                         | Fotograf                                              |
-| ---------------------------- | ----------------------------- | ----------------------------------------------------- |
-| Forside (hero)               | Familie på skovsti            | [Emma](https://unsplash.com/@pictures102)             |
-| Om spkstøtte                | Voksen og barn i aftenlys     | [Sue Zeng](https://unsplash.com/@suezeng)             |
-| Samarbejde med kommuner      | Dialog omkring bord           | [Vitaly Gariev](https://unsplash.com/@silverkblack)   |
-| Metoder                      | Anerkendende samtale          | [Vitaly Gariev](https://unsplash.com/@silverkblack)   |
-| Forside (metode-sektion)     | Rolig skovsti                 | [Ingmar](https://unsplash.com/@visualsbying)          |
+| Nøgle i `images.ts` | Placering                  | Motiv                                      |
+| ------------------- | -------------------------- | ------------------------------------------ |
+| `hero`              | Forside (hero-kort)        | Unge voksne går sammen gennem byen         |
+| `mentoring`         | Metoder                    | To unge i fortrolig samtale på en bænk     |
+| `reflection`        | Forside (metode-sektion)   | Ung ved en sø i aftensol                   |
+| `education`         | Reserve – uddannelsesmotiv | Studerende ved uddannelsessted             |
+| `community`         | Om spkstøtte               | Fire unge på en mur med udsigt over havet  |
+| `collaboration`     | Samarbejde med kommuner    | Fagpersoner i dialog i lyst mødelokale     |
+| `nature`            | Reserve – rolig baggrund   | Sollys gennem en skovsti                   |
+
+**Målgruppe:** Billederne viser unge og unge voksne (ca. 15–25 år). Motiver med
+små børn og kliniske "behandler/patient"-opstillinger er bevidst fravalgt, så
+udtrykket er autentisk, håbefuldt og ikke-stigmatiserende.
 
 > **Anbefaling:** Til endelig produktion bør I overveje at hoste billederne
 > selv (læg dem i `/public` og peg `src` i `images.ts` på fx `/images/hero.jpg`)

@@ -6,10 +6,10 @@ import { site } from "@/lib/site";
 export default function NotFound() {
   return (
     <section className="container-page flex min-h-[60vh] flex-col items-center justify-center py-24 text-center">
-      <p className="text-sm font-semibold uppercase tracking-[0.18em] text-secondary">
+      <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
         404
       </p>
-      <h1 className="mt-4 text-3xl font-semibold tracking-tight text-primary sm:text-4xl">
+      <h1 className="mt-4 text-3xl font-semibold text-ink-900 sm:text-4xl">
         Siden blev ikke fundet
       </h1>
       <p className="mt-4 max-w-md text-muted-foreground">

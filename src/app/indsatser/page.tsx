@@ -45,14 +45,14 @@ export default function ServicesPage() {
       />
 
       {/* Hurtig oversigt / anker-navigation */}
-      <section className="border-b border-border bg-muted/30">
+      <section className="border-b border-ink-900/[0.06] bg-surface-sunken">
         <div className="container-page py-8">
           <ul className="flex flex-wrap gap-2.5">
             {services.map((service) => (
               <li key={service.slug}>
                 <a
                   href={`#${service.slug}`}
-                  className="inline-flex rounded-full border border-border bg-white px-4 py-2 text-sm font-medium text-primary transition-colors hover:border-primary/30 hover:bg-primary/5"
+                  className="inline-flex rounded-full border border-ink-900/[0.06] bg-surface px-4 py-2 text-sm font-medium text-primary transition-colors hover:border-primary/30 hover:bg-primary-50"
                 >
                   {service.title}
                 </a>
@@ -76,14 +76,14 @@ export default function ServicesPage() {
                 <article id={service.slug} className="scroll-mt-28">
                   <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
                     <div className={reversed ? "lg:order-2 lg:col-span-7" : "lg:col-span-7"}>
-                      <span className="grid size-14 place-items-center rounded-2xl bg-primary/8 text-primary">
+                      <span className="grid size-14 place-items-center rounded-2xl bg-primary-50 text-primary">
                         {Icon ? <Icon className="size-7" aria-hidden /> : null}
                       </span>
-                      <h2 className="mt-5 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
+                      <h2 className="mt-5 text-2xl font-semibold text-ink-900 sm:text-3xl">
                         {service.title}
                       </h2>
                       {service.legal ? (
-                        <p className="mt-1.5 text-sm font-medium text-secondary">
+                        <p className="mt-1.5 text-sm font-medium text-primary">
                           {service.legal}
                         </p>
                       ) : null}
@@ -100,17 +100,17 @@ export default function ServicesPage() {
                     </div>
 
                     <div className={reversed ? "lg:order-1 lg:col-span-5" : "lg:col-span-5"}>
-                      <div className="rounded-3xl border border-border bg-gradient-to-br from-muted/60 to-white p-7 shadow-soft">
-                        <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-secondary">
+                      <div className="rounded-3xl border border-ink-900/[0.06] bg-gradient-to-br from-primary-50/60 to-surface p-7 shadow-soft">
+                        <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-primary">
                           Det opnår vi
                         </h3>
                         <ul className="mt-5 space-y-3.5">
                           {service.outcomes.map((outcome) => (
                             <li key={outcome} className="flex items-start gap-3">
-                              <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-secondary/15 text-secondary">
+                              <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-primary-50 text-primary">
                                 <Check className="size-3.5" aria-hidden />
                               </span>
-                              <span className="text-sm leading-relaxed text-foreground/80">
+                              <span className="text-sm leading-relaxed text-ink-700">
                                 {outcome}
                               </span>
                             </li>

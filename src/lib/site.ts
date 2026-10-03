@@ -20,14 +20,23 @@ export const site = {
   hours: "24 timer i døgnet",
 } as const;
 
-export type NavItem = { label: string; href: string };
+/**
+ * `label` er det fulde navn (footer, brødkrumme, sitemap).
+ * `navLabel` er den korte udgave, topnavigationen bruger – de fulde navne
+ * fylder for meget til at kunne stå på én linje i headeren.
+ */
+export type NavItem = { label: string; navLabel?: string; href: string };
 
 export const mainNav: NavItem[] = [
   { label: "Forside", href: "/" },
-  { label: "Om spkstøtte", href: "/om-spk-stotte" },
-  { label: "Socialfaglige indsatser", href: "/indsatser" },
+  { label: "Om spkstøtte", navLabel: "Om os", href: "/om-spk-stotte" },
+  { label: "Socialfaglige indsatser", navLabel: "Indsatser", href: "/indsatser" },
   { label: "Metoder", href: "/metoder" },
-  { label: "Samarbejde med kommuner", href: "/samarbejde-med-kommuner" },
+  {
+    label: "Samarbejde med kommuner",
+    navLabel: "For kommuner",
+    href: "/samarbejde-med-kommuner",
+  },
   { label: "Kontakt", href: "/kontakt" },
 ];
 
@@ -268,3 +277,48 @@ export const trustStats = [
   { value: "24/7", label: "Tilgængelighed ved akutte behov" },
   { value: "DK", label: "Landsdækkende samarbejde" },
 ] as const;
+
+/**
+ * ⚠️  PLACEHOLDER-INDHOLD – SKAL ERSTATTES FØR LANCERING.
+ *
+ * Der foreligger endnu ingen rigtige udtalelser fra samarbejdspartnere.
+ * Teksterne herunder er eksempler, der viser hvordan sektionen ser ud, og de
+ * markeres synligt i UI'et med `testimonialsArePlaceholder`, så de ikke kan
+ * gå i luften ved en fejl.
+ *
+ * Sådan gør du, når de rigtige citater foreligger:
+ *   1. Udskift `quote`, `author` og `role` herunder med de godkendte udtalelser.
+ *   2. Sæt `testimonialsArePlaceholder = false`.
+ *      → så forsvinder advarselsbadget automatisk.
+ *
+ * Husk samtykke fra den citerede, og undgå personhenførbare oplysninger om
+ * børn, unge og familier.
+ */
+export const testimonialsArePlaceholder = true;
+
+export type Testimonial = {
+  quote: string;
+  author: string;
+  role: string;
+};
+
+export const testimonials: Testimonial[] = [
+  {
+    quote:
+      "Her indsættes en udtalelse fra en sagsbehandler om samarbejdet, opstarten og kvaliteten af dokumentationen.",
+    author: "Navn Navnesen",
+    role: "Sagsbehandler, Familieafdelingen",
+  },
+  {
+    quote:
+      "Her indsættes en udtalelse om matchningen af medarbejder og om, hvordan indsatsen har virket for barnet eller den unge.",
+    author: "Navn Navnesen",
+    role: "Myndighedsrådgiver, Børn og Unge",
+  },
+  {
+    quote:
+      "Her indsættes en udtalelse om den løbende dialog, statusnotater og forankring af forandringerne.",
+    author: "Navn Navnesen",
+    role: "Faglig leder, Børne- og Familieafdelingen",
+  },
+];

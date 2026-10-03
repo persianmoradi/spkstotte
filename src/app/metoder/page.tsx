@@ -68,8 +68,8 @@ export default function MethodsPage() {
             <Reveal delay={1} className="mt-8 max-w-none">
               <div className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl shadow-card">
                 <Image
-                  src={images.conversation.src}
-                  alt={images.conversation.alt}
+                  src={images.mentoring.src}
+                  alt={images.mentoring.alt}
                   fill
                   sizes="(max-width: 1024px) 100vw, 30rem"
                   className="object-cover"
@@ -84,9 +84,9 @@ export default function MethodsPage() {
               {principles.map((p) => (
                 <RevealItem
                   key={p.title}
-                  className="rounded-2xl border border-border bg-white p-6 shadow-soft"
+                  className="rounded-3xl border border-ink-900/[0.06] bg-surface p-6 shadow-soft"
                 >
-                  <h3 className="text-base font-semibold text-secondary">
+                  <h3 className="text-base font-semibold text-primary">
                     {p.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
