@@ -26,11 +26,11 @@ const base = (id: string, w = 1600, q = 80) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=${q}`;
 
 export const images = {
-  /** Forsidens hero-kort – unge voksne i hverdagen, opløftende. */
+  /** Forsidens hero-kort – voksen og ung bygger sammen i fællesskabshave. */
   hero: {
-    src: base("photo-1752650143267-57c2491f5ba2", 1400),
-    alt: "Fire unge voksne går sammen gennem byen i samtale og godt humør",
-    credit: { name: "Unsplash", profile: "https://unsplash.com" },
+    src: "/assets/images/hero/hero.png",
+    alt: "En voksen mand hjælper en ung teenager med at bygge et insektdyrehotel i en fællesskabshave",
+    credit: { name: "spkstøtte", profile: "" },
   },
 
   /** Én-til-én samtale mellem ung og støtteperson – varm, ligeværdig. */
