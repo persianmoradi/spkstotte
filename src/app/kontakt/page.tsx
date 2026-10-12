@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Phone, Mail, Clock, MapPin, Building } from "lucide-react";
 
 import { site } from "@/lib/site";
+import { images } from "@/lib/images";
 import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import { PageHero } from "@/components/sections/page-hero";
 import { CallNowButton } from "@/components/call-now-button";
@@ -136,6 +138,18 @@ export default function ContactPage() {
             </Reveal>
           </div>
         </div>
+
+        <Reveal variant="scale" className="mt-10 max-w-none">
+          <div className="relative aspect-[16/7] overflow-hidden rounded-3xl border border-ink-900/[0.06] shadow-soft">
+            <Image
+              src={images.nature.src}
+              alt={images.nature.alt}
+              fill
+              sizes="(max-width: 1280px) 92vw, 72rem"
+              className="object-cover"
+            />
+          </div>
+        </Reveal>
       </section>
     </>
   );

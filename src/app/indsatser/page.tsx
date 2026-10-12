@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Check } from "lucide-react";
 
 import { services } from "@/lib/site";
+import { images, type SiteImage } from "@/lib/images";
 import {
   buildMetadata,
   breadcrumbJsonLd,
@@ -20,6 +22,14 @@ export const metadata: Metadata = buildMetadata({
     "Se spkstøttes socialfaglige indsatser efter Barnets Lov: støttekontaktperson, pædagogisk støtte, ungestøtte, familiebehandling, støtteperson, støttet samvær og overvåget samvær.",
   path: "/indsatser",
 });
+
+/** Kun indsatser med et passende, ikke-stigmatiserende foto får et billede. */
+const serviceImages: Record<string, SiteImage> = {
+  stottekontaktperson: images.conversation,
+  ungestotte: images.education,
+  familiebehandling: images.family,
+  "stottet-samvaer": images.together,
+};
 
 export default function ServicesPage() {
   return (
@@ -67,6 +77,7 @@ export default function ServicesPage() {
           {services.map((service, index) => {
             const Icon = serviceIcons[service.slug];
             const reversed = index % 2 === 1;
+            const photo = serviceImages[service.slug];
             return (
               <Reveal
                 key={service.slug}
@@ -100,6 +111,17 @@ export default function ServicesPage() {
                     </div>
 
                     <div className={reversed ? "lg:order-1 lg:col-span-5" : "lg:col-span-5"}>
+                      {photo ? (
+                        <div className="relative mb-5 aspect-[3/2] overflow-hidden rounded-3xl border border-ink-900/[0.06] shadow-soft">
+                          <Image
+                            src={photo.src}
+                            alt={photo.alt}
+                            fill
+                            sizes="(max-width: 1024px) 92vw, 28rem"
+                            className="object-cover"
+                          />
+                        </div>
+                      ) : null}
                       <div className="rounded-3xl border border-ink-900/[0.06] bg-gradient-to-br from-primary-50/60 to-surface p-7 shadow-soft">
                         <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-primary">
                           Det opnår vi

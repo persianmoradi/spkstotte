@@ -33,6 +33,13 @@ export const images = {
     credit: { name: "spkstøtte", profile: "" },
   },
 
+  /** Ung i silhuet ved skrivebord sent om aftenen – ansigtsløst, genkendeligt pres. */
+  pressure: {
+    src: "/assets/images/forside/presset-sent-aften.jpg",
+    alt: "Ung i silhuet sidder ved et skrivebord om aftenen med hånden mod panden, omgivet af noter og en tablet",
+    credit: { name: "spkstøtte", profile: "" },
+  },
+
   /** Én-til-én samtale mellem ung og støtteperson – varm, ligeværdig. */
   mentoring: {
     src: base("photo-1759593047536-5258c3c6a527", 1200),
@@ -45,6 +52,27 @@ export const images = {
     src: base("photo-1505766358654-db278b02c108", 1600),
     alt: "Ung kvinde sidder ved en sø i aftensol og læser i ro og mag",
     credit: { name: "Unsplash", profile: "https://unsplash.com" },
+  },
+
+  /** To unge i uformel samtale på trappe – bruges til støttekontaktperson. */
+  conversation: {
+    src: base("photo-1713056941761-4af15af4c347", 1200),
+    alt: "To unge sidder på en trappe i solen og snakker afslappet over en kold kaffe",
+    credit: { name: "Baruk Granda", profile: "https://unsplash.com/@barucho" },
+  },
+
+  /** Forældre og børn i samtale i stuen – bruges til familiebehandling. */
+  family: {
+    src: base("photo-1654613698246-b6d44aef0fd5", 1200),
+    alt: "To voksne og to børn sidder i en lys stue og taler sammen i rolig, tryg stemning",
+    credit: { name: "volant", profile: "https://unsplash.com/@volantaroma" },
+  },
+
+  /** Voksen og barn går sammen i åbent landskab, set bagfra – bruges til støttet samvær. */
+  together: {
+    src: base("photo-1564989951309-d4cfecbf1990", 1200),
+    alt: "En voksen og et barn går sammen på en græsklædt bakkekam, set bagfra",
+    credit: { name: "Brett Jordan", profile: "https://unsplash.com/@brett_jordan" },
   },
 
   /** Uddannelse og vej videre – bruges til ungestøtte. */

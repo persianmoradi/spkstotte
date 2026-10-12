@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/hero";
 import { TrustIndicators } from "@/components/sections/trust-indicators";
+import { Recognition } from "@/components/sections/recognition";
 import { WhySpk } from "@/components/sections/why-spk";
 import { ServicesOverview } from "@/components/sections/services-overview";
 import { Process } from "@/components/sections/process";
@@ -12,6 +13,7 @@ export default function HomePage() {
     <>
       <Hero />
       <TrustIndicators />
+      <Recognition />
       <WhySpk />
       <ServicesOverview />
       <Process />
